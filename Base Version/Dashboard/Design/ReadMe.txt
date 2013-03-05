@@ -1,1 +1,0 @@
-This file is used to store the dashboard of the base version.

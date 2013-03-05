@@ -1,1 +1,0 @@
-This file is used to store the design of the base version.
