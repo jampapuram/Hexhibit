@@ -1,0 +1,1 @@
+This file is used to store the test result of the base version.
