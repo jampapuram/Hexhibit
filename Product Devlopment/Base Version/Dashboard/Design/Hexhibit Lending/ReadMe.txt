@@ -1,0 +1,1 @@
+This folder is used to store the base version dashboard of Lending.
