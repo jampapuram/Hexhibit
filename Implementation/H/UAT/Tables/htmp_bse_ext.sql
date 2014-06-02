@@ -1,0 +1,36 @@
+--------------------------------------------------------
+--  File created - Wednesday-May-28-2014   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table HTMP_BSE_EXT
+--------------------------------------------------------
+
+  CREATE TABLE HTMP_BSE_EXT 
+   (	SC_CODE NUMBER(12,0), 
+	SC_NAME VARCHAR2(4000 BYTE), 
+	SC_GROUP VARCHAR2(500 BYTE), 
+	SC_TYPE VARCHAR2(500 BYTE), 
+	OPEN NUMBER(21,5), 
+	HIGH NUMBER(21,5), 
+	LOW NUMBER(21,5), 
+	CLOSE NUMBER(21,5), 
+	LAST NUMBER(21,5), 
+	PREVCLOSE NUMBER(21,5), 
+	NO_TRADES NUMBER(21,5), 
+	NO_OF_SHRS NUMBER(21,5), 
+	NET_TURNOV NUMBER(21,5), 
+	TDCLOINDI VARCHAR2(500 BYTE)
+   ) 
+   ORGANIZATION EXTERNAL 
+    ( TYPE ORACLE_LOADER
+      DEFAULT DIRECTORY HG_HAMC_PUMP_DIR
+      ACCESS PARAMETERS
+      ( RECORDS DELIMITED BY NEWLINE FIELDS TERMINATED BY ',' MISSING FIELD VALUES ARE NULL REJECT ROWS
+WITH ALL NULL FIELDS (SC_CODE,SC_NAME,SC_GROUP,SC_TYPE,OPEN,HIGH,LOW,CLOSE,LAST,PREVCLOSE,NO_TRADES,NO_OF_SHRS,NET_TURNOV,TDCLOINDI,UPD_DT,VALUE_DATE)     )
+      LOCATION
+       ( 'BSE.csv'
+       )
+    )
+  PARALLEL ;
+
+

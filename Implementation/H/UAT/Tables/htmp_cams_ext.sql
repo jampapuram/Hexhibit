@@ -1,0 +1,34 @@
+--------------------------------------------------------
+--  File created - Wednesday-May-28-2014   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table HTMP_CAMS_EXT
+--------------------------------------------------------
+
+  CREATE TABLE HTMP_CAMS_EXT 
+   (	UPLOAD_DT DATE, 
+	HDFC_AMC_CODE VARCHAR2(50 BYTE), 
+	CAMS_CODE VARCHAR2(100 BYTE), 
+	SCHEME VARCHAR2(100 BYTE), 
+	CLOSING_BALANCE NUMBER(21,5), 
+	OTHERS NUMBER(21,5), 
+	C_PAYOUT NUMBER(21,5), 
+	C_REINVEST NUMBER(21,5), 
+	IND_HUF NUMBER(21,5), 
+	R_PAYOUT NUMBER(21,5), 
+	R_REINVEST NUMBER(21,5), 
+	C_BLANK NUMBER(21,5), 
+	R_BLANK NUMBER(21,5)
+   ) 
+   ORGANIZATION EXTERNAL 
+    ( TYPE ORACLE_LOADER
+      DEFAULT DIRECTORY HG_HAMC_PUMP_DIR
+      ACCESS PARAMETERS
+      ( RECORDS DELIMITED BY NEWLINE FIELDS TERMINATED BY ',' MISSING FIELD VALUES ARE NULL REJECT ROWS
+WITH ALL NULL FIELDS (UPLOAD_DT,HDFC_AMC_CODE,CAMS_CODE,SCHEME,CLOSING_BALANCE,OTHERS,C_PAYOUT,C_REINVEST,IND_HUF,R_PAYOUT,R_REINVEST,C_BLANK,R_BLANK)     )
+      LOCATION
+       ( 'CAMS.CSV'
+       )
+    );
+
+
